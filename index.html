@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Durian Market Indonesia - Shopee Style</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
+body{background:#f5f5f5;}
+header{background:#ee4d2d;color:white;padding:20px;text-align:center;}
+.container{max-width:1200px;margin:auto;padding:20px;}
+.card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:20px;}
+.produk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.produk{background:white;border-radius:12px;padding:15px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.produk img{width:100%;height:220px;object-fit:cover;display:block;margin:0 auto 15px auto;border-radius:10px;}
+.produk h3{text-align:center;margin-bottom:10px;}
+.produk p{margin:6px 0;}
+.stok{color:green;font-weight:bold;}
+.btn{width:100%;padding:12px;background:#ee4d2d;color:white;border:none;border-radius:8px;cursor:pointer;margin-top:10px;}
+input,textarea,select{width:100%;padding:10px;margin-top:8px;border:1px solid #ccc;border-radius:8px;}
+#listKeranjang li{margin:8px 0;}
+.total{font-size:20px;font-weight:bold;margin-top:15px;color:#ee4d2d;}
+</style>
+</head>
+<body>
+<header>
+<h1>Durian Market Indonesia</h1>
+<p>Belanja durian  • COD tersedia • Pengiriman cepat</p>
+</header>
+<div class="container">
+<div class="card">
+<h2>Alamat Tujuan</h2>
+<input type="text" placeholder="Nama Penerima">
+<textarea rows="3" placeholder="Masukkan alamat lengkap"></textarea>
+<select>
+<option>COD (Bayar di Tempat)</option>
+<option>Transfer Bank - BCA</option>
+<option>Transfer Bank - BRI</option>
+<option>Transfer Bank - Mandiri</option>
+<option>Transfer Bank - BNI</option>
+<option>E-Wallet - DANA</option>
+<option>E-Wallet - OVO</option>
+<option>E-Wallet - GoPay</option>
+<option>E-Wallet - ShopeePay</option>
+<option>QRIS</option>
+</select>
+<div style="margin-top:15px;">
+  <p style="margin-bottom:10px;"><strong>Metode Pembayaran:</strong></p>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;">
+    <a href="https://www.bca.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 BCA</div></a>
+    <a href="https://bri.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 BRI</div></a>
+    <a href="https://www.bankmandiri.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 Mandiri</div></a>
+    <a href="https://www.bni.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 BNI</div></a>
+    <a href="https://www.dana.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">💳 DANA</div></a>
+    <a href="https://www.ovo.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">💳 OVO</div></a>
+    <a href="https://www.gojek.com/gopay" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">💳 GoPay</div></a>
+    <a href="https://www.bi.go.id/QRIS" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">📱 QRIS</div></a>
+  </div>
+</div>
+<p style="margin-top:15px;"><a href="https://wa.me/6285222373394" target="_blank" style="text-decoration:none;color:inherit;"><strong>WhatsApp:</strong> 085222373394</a></p>
+</div>
+
+<div class="produk-grid">
+<div class="produk"><img src="c:\Users\ASUS\Pictures\20221012_101644_phpn4y6mv_resized.jpg"><h3>Durian Musang King</h3><p><strong>Harga:</strong> Rp150.000/kg</p><p class="stok">Stok: 25 buah</p><button class="btn" onclick="tambahKeranjang('Musang King',150000)">Tambah ke Keranjang</button></div>
+<div class="produk"><img src="c:\Users\ASUS\Pictures\MUSANGKING-8-600x600.webp"><h3>Durian Montong</h3><p><strong>Harga:</strong> Rp120.000/kg</p><p class="stok">Stok: 30 buah</p><button class="btn" onclick="tambahKeranjang('Montong',120000)">Tambah ke Keranjang</button></div>
+<div class="produk"><img src="c:\Users\ASUS\Pictures\148c4511545f510f1cb6ebfaaaf251ec.jpg"><h3>Durian Petruk</h3><p><strong>Harga:</strong> Rp100.000/kg</p><p class="stok">Stok: 18 buah</p><button class="btn" onclick="tambahKeranjang('Petruk',100000)">Tambah ke Keranjang</button></div>
+<div class="produk"><img src="c:\Users\ASUS\Pictures\rd37uw2wkv46rq2.jpeg"><h3>Durian Bawor</h3><p><strong>Harga:</strong> Rp130.000/kg</p><p class="stok">Stok: 20 buah</p><button class="btn" onclick="tambahKeranjang('Bawor',130000)">Tambah ke Keranjang</button></div>
+</div>
+
+<div class="card">
+<h2>Bukti Pembayaran & Status Pesanan</h2>
+<input type="file" id="buktiPembayaran" accept="image/*,.pdf">
+<p id="fileStatus">Belum ada file diunggah</p>
+<div id="previewBukti" style="margin-top:10px;"></div>
+<p><strong>Status Pesanan:</strong> <span id="statusPesanan">Diproses</span></p>
+<button class="btn" onclick="ubahStatusPesanan()">Update Status</button>
+</div>
+
+<div class="card">
+<h2>Keranjang & Checkout</h2>
+<ul id="listKeranjang"></ul>
+<p class="total">Total: Rp <span id="totalHarga">0</span></p>
+<button class="btn" onclick="checkoutSekarang()">Checkout Sekarang</button>
+</div>
+</div>
+
+<script>
+let keranjang = [];
+let stokProduk = {'Musang King':25,'Montong':30,'Petruk':18,'Bawor':20};
+
+function tambahKeranjang(nama,harga){
+  if(stokProduk[nama] <= 0){ alert('Stok habis'); return; }
+  const existing = keranjang.find(i=>i.nama===nama);
+  if(existing){ if(existing.jumlah < stokProduk[nama]) existing.jumlah++; }
+  else keranjang.push({nama,harga,jumlah:1});
+  tampilkanKeranjang();
+}
+
+function ubahJumlah(index, perubahan){
+  const item = keranjang[index];
+  if(!item) return;
+  if(perubahan > 0 && item.jumlah >= stokProduk[item.nama]) return;
+  item.jumlah += perubahan;
+  if(item.jumlah <= 0) keranjang.splice(index,1);
+  tampilkanKeranjang();
+}
+
+function hapusItem(index){
+  keranjang.splice(index,1);
+  tampilkanKeranjang();
+}
+
+function ubahStatusPesanan(){
+  const statusEl = document.getElementById('statusPesanan');
+  const current = statusEl.textContent;
+  if(current === 'Diproses') statusEl.textContent = 'Dikirim';
+  else if(current === 'Dikirim') statusEl.textContent = 'Selesai';
+  else statusEl.textContent = 'Diproses';
+}
+
+function checkoutSekarang(){
+  if(keranjang.length === 0){ alert('Keranjang masih kosong'); return; }
+  keranjang.forEach(item => stokProduk[item.nama] -= item.jumlah);
+  keranjang = [];
+  updateStokTampilan();
+  tampilkanKeranjang();
+  alert('Checkout berhasil!');
+  window.open('https://wa.me/6285222373394?text=Halo%20saya%20sudah%20checkout%20pesanan%20durian','_blank');
+}
+
+function updateStokTampilan(){
+  document.querySelectorAll('.produk').forEach(card=>{
+    const nama = card.querySelector('h3').textContent.replace('Durian ','');
+    const stokEl = card.querySelector('.stok');
+    if(stokProduk[nama] !== undefined) stokEl.textContent = 'Stok: ' + stokProduk[nama] + ' buah';
+  });
+}
+
+function tampilkanKeranjang(){
+  const list = document.getElementById('listKeranjang');
+  const totalHarga = document.getElementById('totalHarga');
+  list.innerHTML = '';
+  let total = 0;
+  keranjang.forEach((item,index)=>{
+    total += item.harga * item.jumlah;
+    const li = document.createElement('li');
+    li.innerHTML = `<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;"><span>${item.nama} - Rp ${item.harga.toLocaleString('id-ID')} x ${item.jumlah}</span><div><button onclick="ubahJumlah(${index},-1)">-</button> <button onclick="ubahJumlah(${index},1)">+</button> <button onclick="hapusItem(${index})">Hapus</button></div></div>`;
+    list.appendChild(li);
+  });
+  totalHarga.textContent = total.toLocaleString('id-ID');
+}
+
+document.getElementById('buktiPembayaran').addEventListener('change', function(){
+  const file = this.files[0];
+  const fileName = file ? file.name : 'Belum ada file diunggah';
+  document.getElementById('fileStatus').textContent = 'File terunggah: ' + fileName;
+  const preview = document.getElementById('previewBukti');
+  preview.innerHTML = '';
+  if(file && file.type.startsWith('image/')){
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(file);
+    img.style.width = '200px';
+    img.style.borderRadius = '10px';
+    img.style.marginTop = '8px';
+    preview.appendChild(img);
+  }
+});
+
+updateStokTampilan();
+</script>
+</body>
+</html>
