@@ -3,170 +3,416 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Durian Market Indonesia - Shopee Style</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
-body{background:#f5f5f5;}
-header{background:#ee4d2d;color:white;padding:20px;text-align:center;}
-.container{max-width:1200px;margin:auto;padding:20px;}
-.card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:20px;}
-.produk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-.produk{background:white;border-radius:12px;padding:15px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
-.produk img{width:100%;height:220px;object-fit:cover;display:block;margin:0 auto 15px auto;border-radius:10px;}
-.produk h3{text-align:center;margin-bottom:10px;}
-.produk p{margin:6px 0;}
-.stok{color:green;font-weight:bold;}
-.btn{width:100%;padding:12px;background:#ee4d2d;color:white;border:none;border-radius:8px;cursor:pointer;margin-top:10px;}
-input,textarea,select{width:100%;padding:10px;margin-top:8px;border:1px solid #ccc;border-radius:8px;}
-#listKeranjang li{margin:8px 0;}
-.total{font-size:20px;font-weight:bold;margin-top:15px;color:#ee4d2d;}
-</style>
+<title>Durian Market Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<h1>Durian Market Indonesia</h1>
-<p>Belanja durian  • COD tersedia • Pengiriman cepat</p>
-</header>
-<div class="container">
-<div class="card">
-<h2>Alamat Tujuan</h2>
-<input type="text" placeholder="Nama Penerima">
-<textarea rows="3" placeholder="Masukkan alamat lengkap"></textarea>
-<select>
-<option>COD (Bayar di Tempat)</option>
-<option>Transfer Bank - BCA</option>
-<option>Transfer Bank - BRI</option>
-<option>Transfer Bank - Mandiri</option>
-<option>Transfer Bank - BNI</option>
-<option>E-Wallet - DANA</option>
-<option>E-Wallet - OVO</option>
-<option>E-Wallet - GoPay</option>
-<option>E-Wallet - ShopeePay</option>
-<option>QRIS</option>
-</select>
-<div style="margin-top:15px;">
-  <p style="margin-bottom:10px;"><strong>Metode Pembayaran:</strong></p>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;">
-    <a href="https://www.bca.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 BCA</div></a>
-    <a href="https://bri.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 BRI</div></a>
-    <a href="https://www.bankmandiri.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 Mandiri</div></a>
-    <a href="https://www.bni.co.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">🏦 BNI</div></a>
-    <a href="https://www.dana.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">💳 DANA</div></a>
-    <a href="https://www.ovo.id" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">💳 OVO</div></a>
-    <a href="https://www.gojek.com/gopay" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">💳 GoPay</div></a>
-    <a href="https://www.bi.go.id/QRIS" target="_blank" style="text-decoration:none;color:inherit;"><div style="padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.08);cursor:pointer;">📱 QRIS</div></a>
+
+<!-- STICKY HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-icon">🌿</span>
+      <div>
+        <div class="logo-title">Durian Market</div>
+        <div class="logo-sub">Indonesia</div>
+      </div>
+    </div>
+    <div class="header-tagline">COD Tersedia &nbsp;·&nbsp; Pengiriman Cepat &nbsp;·&nbsp; Produk Terpilih</div>
+    <button class="cart-trigger" onclick="toggleCart()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      Keranjang
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
   </div>
-</div>
-<p style="margin-top:15px;"><a href="https://wa.me/6285222373394" target="_blank" style="text-decoration:none;color:inherit;"><strong>WhatsApp:</strong> 085222373394</a></p>
-</div>
+</header>
 
-<div class="produk-grid">
-<div class="produk"><img src="https://images.pexels.com/photos/34927312/pexels-photo-34927312.jpeg"><h3>Durian Musang King</h3><p><strong>Harga:</strong> Rp150.000/kg</p><p class="stok">Stok: 25 buah</p><button class="btn" onclick="tambahKeranjang('Musang King',150000)">Tambah ke Keranjang</button></div>
-<div class="produk"><img src="https://images.pexels.com/photos/35535820/pexels-photo-35535820.jpeg"><h3>Durian Montong</h3><p><strong>Harga:</strong> Rp120.000/kg</p><p class="stok">Stok: 30 buah</p><button class="btn" onclick="tambahKeranjang('Montong',120000)">Tambah ke Keranjang</button></div>
-<div class="produk"><img src="https://images.pexels.com/photos/35111183/pexels-photo-35111183.jpeg"><h3>Durian Petruk</h3><p><strong>Harga:</strong> Rp100.000/kg</p><p class="stok">Stok: 18 buah</p><button class="btn" onclick="tambahKeranjang('Petruk',100000)">Tambah ke Keranjang</button></div>
-<div class="produk"><img src="https://images.pexels.com/photos/31905808/pexels-photo-31905808.jpeg"><h3>Durian Bawor</h3><p><strong>Harga:</strong> Rp130.000/kg</p><p class="stok">Stok: 20 buah</p><button class="btn" onclick="tambahKeranjang('Bawor',130000)">Tambah ke Keranjang</button></div>
-<div class="produk"><img src="https://images.pexels.com/photos/3888735/pexels-photo-3888735.jpeg" alt="Foto durian dari Pexels"><h3>Durian Istimewa</h3><p><strong>Harga:</strong> Rp140.000/kg</p><p class="stok">Stok: 15 buah</p><button class="btn" onclick="tambahKeranjang('Istimewa',140000)">Tambah ke Keranjang</button><p style="font-size:12px;margin-top:1<PASSWORD>;color:#777;">Foto dari <a href="https://www.pexels.com/search/durian/" target="_blank" style="color:#ee4d2d;text-decoration:none;">Pexels</a></p></div>
-</div>
+<!-- HERO BANNER -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🌟 Musim Panen Terbaik</div>
+    <h1>Raja Buah<br><span>Langsung ke Tanganmu</span></h1>
+    <p>Durian pilihan berkualitas tinggi, dipanen segar dari kebun terbaik Indonesia. Dijamin lezat atau uang kembali.</p>
+    <a href="#produk" class="hero-cta">Belanja Sekarang</a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-badge-float badge-1">🏅 Premium Grade</div>
+    <div class="hero-badge-float badge-2">📦 Same Day</div>
+    <div class="hero-badge-float badge-3">💯 Terpercaya</div>
+    <div class="hero-emoji">🌿</div>
+  </div>
+</section>
 
-<div class="card">
-<h2>Bukti Pembayaran & Status Pesanan</h2>
-<input type="file" id="buktiPembayaran" accept="image/*,.pdf">
-<p id="fileStatus">Belum ada file diunggah</p>
-<div id="previewBukti" style="margin-top:10px;"></div>
-<p><strong>Status Pesanan:</strong> <span id="statusPesanan">Diproses</span></p>
-<button class="btn" onclick="ubahStatusPesanan()">Update Status</button>
-</div>
+<!-- MAIN CONTENT -->
+<main class="container">
 
-<div class="card">
-<h2>Keranjang & Checkout</h2>
-<ul id="listKeranjang"></ul>
-<p class="total">Total: Rp <span id="totalHarga">0</span></p>
-<button class="btn" onclick="checkoutSekarang()">Checkout Sekarang</button>
-</div>
-</div>
+  <!-- PRODUCT SECTION -->
+  <section id="produk">
+    <div class="section-header">
+      <h2>Pilihan Durian</h2>
+      <p>Semua produk segar dan siap kirim</p>
+    </div>
+    <div class="produk-grid">
+
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://images.pexels.com/photos/34927312/pexels-photo-34927312.jpeg" alt="Durian Musang King" loading="lazy">
+          <span class="grade-badge">🥇 Best Seller</span>
+        </div>
+        <div class="produk-body">
+          <h3>Durian Musang King</h3>
+          <p class="produk-desc">Daging tebal, manis legit dengan aroma harum khas Musang King premium</p>
+          <div class="produk-footer">
+            <div>
+              <div class="harga">Rp150.000<span>/kg</span></div>
+              <div class="stok" id="stok-Musang King"><span class="dot"></span>Stok: 25 buah</div>
+            </div>
+            <button class="btn-add" onclick="tambahKeranjang('Musang King',150000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://images.pexels.com/photos/35535820/pexels-photo-35535820.jpeg" alt="Durian Montong" loading="lazy">
+          <span class="grade-badge grade-blue">🌟 Populer</span>
+        </div>
+        <div class="produk-body">
+          <h3>Durian Montong</h3>
+          <p class="produk-desc">Biji kecil, daging banyak dan tebal berwarna kuning cerah menggiurkan</p>
+          <div class="produk-footer">
+            <div>
+              <div class="harga">Rp120.000<span>/kg</span></div>
+              <div class="stok" id="stok-Montong"><span class="dot"></span>Stok: 30 buah</div>
+            </div>
+            <button class="btn-add" onclick="tambahKeranjang('Montong',120000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://images.pexels.com/photos/35111183/pexels-photo-35111183.jpeg" alt="Durian Petruk" loading="lazy">
+          <span class="grade-badge grade-green">🇮🇩 Lokal</span>
+        </div>
+        <div class="produk-body">
+          <h3>Durian Petruk</h3>
+          <p class="produk-desc">Varietas asli Jawa Tengah, rasa manis sedikit pahit yang khas dan unik</p>
+          <div class="produk-footer">
+            <div>
+              <div class="harga">Rp100.000<span>/kg</span></div>
+              <div class="stok" id="stok-Petruk"><span class="dot"></span>Stok: 18 buah</div>
+            </div>
+            <button class="btn-add" onclick="tambahKeranjang('Petruk',100000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://images.pexels.com/photos/31905808/pexels-photo-31905808.jpeg" alt="Durian Bawor" loading="lazy">
+          <span class="grade-badge grade-purple">👑 Premium</span>
+        </div>
+        <div class="produk-body">
+          <h3>Durian Bawor</h3>
+          <p class="produk-desc">Durian super jumbo dari Banyumas, ukuran besar dengan isi yang melimpah</p>
+          <div class="produk-footer">
+            <div>
+              <div class="harga">Rp130.000<span>/kg</span></div>
+              <div class="stok" id="stok-Bawor"><span class="dot"></span>Stok: 20 buah</div>
+            </div>
+            <button class="btn-add" onclick="tambahKeranjang('Bawor',130000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://images.pexels.com/photos/3888735/pexels-photo-3888735.jpeg" alt="Durian Istimewa" loading="lazy">
+          <span class="grade-badge">🎁 Edisi Spesial</span>
+        </div>
+        <div class="produk-body">
+          <h3>Durian Istimewa</h3>
+          <p class="produk-desc">Paket curated pilihan terbaik kami, cocok untuk hadiah atau acara spesial</p>
+          <div class="produk-footer">
+            <div>
+              <div class="harga">Rp140.000<span>/kg</span></div>
+              <div class="stok" id="stok-Istimewa"><span class="dot"></span>Stok: 15 buah</div>
+            </div>
+            <button class="btn-add" onclick="tambahKeranjang('Istimewa',140000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CHECKOUT FORM -->
+  <section class="checkout-section">
+    <div class="section-header">
+      <h2>Informasi Pengiriman</h2>
+      <p>Isi data penerima dan pilih metode pembayaran</p>
+    </div>
+
+    <div class="checkout-grid">
+      <div class="form-card">
+        <div class="form-group">
+          <label>Nama Penerima</label>
+          <input type="text" id="namaPenerima" placeholder="Masukkan nama lengkap">
+        </div>
+        <div class="form-group">
+          <label>Alamat Lengkap</label>
+          <textarea rows="3" id="alamat" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan, Kota, Kode Pos"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Metode Pengiriman & Pembayaran</label>
+          <select id="metodePembayaran">
+            <option>COD (Bayar di Tempat)</option>
+            <option>Transfer Bank - BCA</option>
+            <option>Transfer Bank - BRI</option>
+            <option>Transfer Bank - Mandiri</option>
+            <option>Transfer Bank - BNI</option>
+            <option>E-Wallet - DANA</option>
+            <option>E-Wallet - OVO</option>
+            <option>E-Wallet - GoPay</option>
+            <option>E-Wallet - ShopeePay</option>
+            <option>QRIS</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Upload Bukti Pembayaran</label>
+          <div class="file-upload-area" id="dropZone">
+            <input type="file" id="buktiPembayaran" accept="image/*,.pdf">
+            <div class="file-upload-inner">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <p id="fileStatus">Klik atau seret file ke sini</p>
+              <span>PNG, JPG, PDF hingga 10MB</span>
+            </div>
+          </div>
+          <div id="previewBukti"></div>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        <div class="payment-title">Pilih Metode Pembayaran</div>
+        <div class="payment-grid">
+          <a href="https://www.bca.co.id" target="_blank" class="pay-chip">🏦 BCA</a>
+          <a href="https://bri.co.id" target="_blank" class="pay-chip">🏦 BRI</a>
+          <a href="https://www.bankmandiri.co.id" target="_blank" class="pay-chip">🏦 Mandiri</a>
+          <a href="https://www.bni.co.id" target="_blank" class="pay-chip">🏦 BNI</a>
+          <a href="https://www.dana.id" target="_blank" class="pay-chip">💳 DANA</a>
+          <a href="https://www.ovo.id" target="_blank" class="pay-chip">💳 OVO</a>
+          <a href="https://www.gojek.com/gopay" target="_blank" class="pay-chip">💳 GoPay</a>
+          <a href="https://www.bi.go.id/QRIS" target="_blank" class="pay-chip">📱 QRIS</a>
+        </div>
+
+        <div class="order-status-wrap">
+          <div class="status-label">Status Pesanan</div>
+          <div class="status-row">
+            <div class="status-pill" id="statusPesanan">
+              <span class="status-dot"></span> Diproses
+            </div>
+            <button class="btn-status" onclick="ubahStatusPesanan()">Update Status</button>
+          </div>
+          <div class="status-track">
+            <div class="track-step active" id="track-1">📋 Diproses</div>
+            <div class="track-arrow">→</div>
+            <div class="track-step" id="track-2">🚚 Dikirim</div>
+            <div class="track-arrow">→</div>
+            <div class="track-step" id="track-3">✅ Selesai</div>
+          </div>
+        </div>
+
+        <div class="wa-card">
+          <div class="wa-icon">💬</div>
+          <div>
+            <div class="wa-title">Hubungi Kami</div>
+            <a href="https://wa.me/6285222373394" target="_blank" class="wa-number">085222373394</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FLOATING CART PANEL -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h3>Keranjang Belanja</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body">
+    <ul id="listKeranjang">
+      <li class="cart-empty">
+        <div>🛒</div>
+        <p>Keranjang masih kosong</p>
+      </li>
+    </ul>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Total Belanja</span>
+      <span class="cart-total-value">Rp <span id="totalHarga">0</span></span>
+    </div>
+    <button class="btn-checkout" onclick="checkoutSekarang()">Checkout Sekarang 🛒</button>
+    <a href="https://wa.me/6285222373394?text=Halo%20saya%20ingin%20order%20durian" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
+  </div>
+</aside>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">🌿 Durian Market Indonesia</div>
+    <p>Produk segar langsung dari kebun terbaik Indonesia · COD Tersedia · Pengiriman ke seluruh wilayah</p>
+    <p style="margin-top:8px;opacity:0.5;font-size:12px;">Foto produk dari <a href="https://www.pexels.com" target="_blank" style="color:inherit;">Pexels</a></p>
+  </div>
+</footer>
 
 <script>
 let keranjang = [];
-let stokProduk = {'Musang King':25,'Montong':30,'Petruk':18,'Bawor':20};
+let stokProduk = {'Musang King':25,'Montong':30,'Petruk':18,'Bawor':20,'Istimewa':15};
+let statusIndex = 0;
+const statusList = ['Diproses','Dikirim','Selesai'];
 
-function tambahKeranjang(nama,harga){
-  if(stokProduk[nama] <= 0){ alert('Stok habis'); return; }
-  const existing = keranjang.find(i=>i.nama===nama);
-  if(existing){ if(existing.jumlah < stokProduk[nama]) existing.jumlah++; }
-  else keranjang.push({nama,harga,jumlah:1});
-  tampilkanKeranjang();
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
 }
 
-function ubahJumlah(index, perubahan){
+function toggleCart() {
+  document.getElementById('cartPanel').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('show');
+}
+
+function tambahKeranjang(nama, harga) {
+  if (stokProduk[nama] <= 0) { showToast('⚠️ Stok habis!'); return; }
+  const existing = keranjang.find(i => i.nama === nama);
+  if (existing) {
+    if (existing.jumlah >= stokProduk[nama]) { showToast('⚠️ Stok tidak mencukupi'); return; }
+    existing.jumlah++;
+  } else {
+    keranjang.push({nama, harga, jumlah: 1});
+  }
+  tampilkanKeranjang();
+  showToast(`✅ ${nama} ditambahkan ke keranjang`);
+}
+
+function ubahJumlah(index, delta) {
   const item = keranjang[index];
-  if(!item) return;
-  if(perubahan > 0 && item.jumlah >= stokProduk[item.nama]) return;
-  item.jumlah += perubahan;
-  if(item.jumlah <= 0) keranjang.splice(index,1);
+  if (!item) return;
+  if (delta > 0 && item.jumlah >= stokProduk[item.nama]) return;
+  item.jumlah += delta;
+  if (item.jumlah <= 0) keranjang.splice(index, 1);
   tampilkanKeranjang();
 }
 
-function hapusItem(index){
-  keranjang.splice(index,1);
+function hapusItem(index) {
+  const nama = keranjang[index]?.nama;
+  keranjang.splice(index, 1);
   tampilkanKeranjang();
+  if (nama) showToast(`🗑️ ${nama} dihapus dari keranjang`);
 }
 
-function ubahStatusPesanan(){
-  const statusEl = document.getElementById('statusPesanan');
-  const current = statusEl.textContent;
-  if(current === 'Diproses') statusEl.textContent = 'Dikirim';
-  else if(current === 'Dikirim') statusEl.textContent = 'Selesai';
-  else statusEl.textContent = 'Diproses';
+function tampilkanKeranjang() {
+  const list = document.getElementById('listKeranjang');
+  const totalEl = document.getElementById('totalHarga');
+  const badge = document.getElementById('cartBadge');
+  list.innerHTML = '';
+  let total = 0;
+  let totalItem = 0;
+
+  if (keranjang.length === 0) {
+    list.innerHTML = '<li class="cart-empty"><div>🛒</div><p>Keranjang masih kosong</p></li>';
+  } else {
+    keranjang.forEach((item, index) => {
+      total += item.harga * item.jumlah;
+      totalItem += item.jumlah;
+      const li = document.createElement('li');
+      li.className = 'cart-item';
+      li.innerHTML = `
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.nama}</div>
+          <div class="cart-item-price">Rp ${item.harga.toLocaleString('id-ID')}/kg</div>
+        </div>
+        <div class="cart-item-controls">
+          <button class="qty-btn" onclick="ubahJumlah(${index},-1)">−</button>
+          <span class="qty-val">${item.jumlah}</span>
+          <button class="qty-btn" onclick="ubahJumlah(${index},1)">+</button>
+          <button class="del-btn" onclick="hapusItem(${index})">🗑</button>
+        </div>
+        <div class="cart-item-subtotal">Rp ${(item.harga*item.jumlah).toLocaleString('id-ID')}</div>
+      `;
+      list.appendChild(li);
+    });
+  }
+  totalEl.textContent = total.toLocaleString('id-ID');
+  badge.textContent = totalItem;
+  badge.style.display = totalItem > 0 ? 'flex' : 'none';
 }
 
-function checkoutSekarang(){
-  if(keranjang.length === 0){ alert('Keranjang masih kosong'); return; }
-  keranjang.forEach(item => stokProduk[item.nama] -= item.jumlah);
+function ubahStatusPesanan() {
+  statusIndex = (statusIndex + 1) % 3;
+  const labels = ['Diproses','Dikirim','Selesai'];
+  const icons = ['📋','🚚','✅'];
+  document.getElementById('statusPesanan').innerHTML = `<span class="status-dot"></span> ${icons[statusIndex]} ${labels[statusIndex]}`;
+  ['track-1','track-2','track-3'].forEach((id,i)=>{
+    document.getElementById(id).classList.toggle('active', i <= statusIndex);
+  });
+}
+
+function checkoutSekarang() {
+  if (keranjang.length === 0) { showToast('⚠️ Keranjang masih kosong!'); return; }
+  keranjang.forEach(item => stokProduk[item.nama] = Math.max(0, stokProduk[item.nama] - item.jumlah));
   keranjang = [];
   updateStokTampilan();
   tampilkanKeranjang();
-  alert('Checkout berhasil!');
-  window.open('https://wa.me/6285222373394?text=Halo%20saya%20sudah%20checkout%20pesanan%20durian','_blank');
+  toggleCart();
+  showToast('🎉 Checkout berhasil! Menghubungi WhatsApp...');
+  setTimeout(()=>{
+    window.open('https://wa.me/6285222373394?text=Halo%20saya%20sudah%20checkout%20pesanan%20durian','_blank');
+  }, 1000);
 }
 
-function updateStokTampilan(){
-  document.querySelectorAll('.produk').forEach(card=>{
-    const nama = card.querySelector('h3').textContent.replace('Durian ','');
-    const stokEl = card.querySelector('.stok');
-    if(stokProduk[nama] !== undefined) stokEl.textContent = 'Stok: ' + stokProduk[nama] + ' buah';
+function updateStokTampilan() {
+  Object.entries(stokProduk).forEach(([nama, stok])=>{
+    const el = document.getElementById('stok-'+nama);
+    if (el) {
+      el.innerHTML = `<span class="dot${stok===0?' dot-red':''}"></span>Stok: ${stok} buah`;
+      el.classList.toggle('stok-habis', stok===0);
+    }
   });
-}
-
-function tampilkanKeranjang(){
-  const list = document.getElementById('listKeranjang');
-  const totalHarga = document.getElementById('totalHarga');
-  list.innerHTML = '';
-  let total = 0;
-  keranjang.forEach((item,index)=>{
-    total += item.harga * item.jumlah;
-    const li = document.createElement('li');
-    li.innerHTML = `<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;"><span>${item.nama} - Rp ${item.harga.toLocaleString('id-ID')} x ${item.jumlah}</span><div><button onclick="ubahJumlah(${index},-1)">-</button> <button onclick="ubahJumlah(${index},1)">+</button> <button onclick="hapusItem(${index})">Hapus</button></div></div>`;
-    list.appendChild(li);
-  });
-  totalHarga.textContent = total.toLocaleString('id-ID');
 }
 
 document.getElementById('buktiPembayaran').addEventListener('change', function(){
   const file = this.files[0];
-  const fileName = file ? file.name : 'Belum ada file diunggah';
-  document.getElementById('fileStatus').textContent = 'File terunggah: ' + fileName;
+  document.getElementById('fileStatus').textContent = file ? '📎 ' + file.name : 'Klik atau seret file ke sini';
   const preview = document.getElementById('previewBukti');
   preview.innerHTML = '';
-  if(file && file.type.startsWith('image/')){
+  if (file && file.type.startsWith('image/')) {
     const img = document.createElement('img');
     img.src = URL.createObjectURL(file);
-    img.style.width = '200px';
-    img.style.borderRadius = '10px';
-    img.style.marginTop = '8px';
+    img.className = 'preview-img';
     preview.appendChild(img);
   }
 });
 
+// Smooth scroll for hero CTA
+document.querySelector('.hero-cta').addEventListener('click', function(e){
+  e.preventDefault();
+  document.getElementById('produk').scrollIntoView({behavior:'smooth'});
+});
+
+tampilkanKeranjang();
 updateStokTampilan();
 </script>
 </body>
